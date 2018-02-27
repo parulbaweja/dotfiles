@@ -46,9 +46,8 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'sheerun/vim-polyglot'
 Plug 'w0ng/vim-hybrid'
 Plug 'majutsushi/tagbar'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'akshaynanavati/a.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -241,7 +240,6 @@ nnoremap <C-p> :Files<CR>
 map <C-n> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFind<CR>
 nmap <leader>t :TagbarToggle<CR>
-
 nmap <leader>] :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 function! YcmGoToVertical()
@@ -445,6 +443,7 @@ au! FileType python setl nosmartindent
 au FileType python setl sw=4 sts=4 et
 au FileType cpp setl sw=2 sts=2 et
 au FileType c setl sw=2 sts=2 et
+au FileType javascript setl sw=2 sts=2 et
 
 au FileType go set listchars=eol:$,tab:\|\ 
 let g:go_fmt_fail_silently = 1
@@ -458,17 +457,17 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_min_num_identifier_candidate_chars = 4
 let g:ycm_error_symbol = 'x'
 let g:ycm_warning_symbol = '!'
+let g:ycm_python_binary_path = 'python'
 let g:ale_fixers = {
 \   'cpp': ['clang-format'],
 \   'c': ['clang-format'],
 \   'py': ['autopep8'],
-\   'rust': ['rustfmt'],
 \}
 
 let g:ale_linters = {
 \   'cpp': [],
-\   'py': [],
 \   'rust': ['cargo'],
+\   'py': ['flake8'],
 \}
 
 let g:ale_fix_on_save = 1
