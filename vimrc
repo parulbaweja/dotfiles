@@ -42,12 +42,12 @@ Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 let NERDTreeIgnore = ['\.pyc$', '\.o$']
 Plug 'airblade/vim-gitgutter'
-Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'sheerun/vim-polyglot'
 Plug 'w0ng/vim-hybrid'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -462,12 +462,13 @@ let g:ale_fixers = {
 \   'cpp': ['clang-format'],
 \   'c': ['clang-format'],
 \   'py': ['autopep8'],
+\   'python': ['autopep8'],
 \}
 
 let g:ale_linters = {
 \   'cpp': [],
 \   'rust': ['cargo'],
-\   'py': ['flake8'],
+\   'python': [],
 \}
 
 let g:ale_fix_on_save = 1
